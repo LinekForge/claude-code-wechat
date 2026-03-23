@@ -18,7 +18,7 @@ Claude Code ← wechat_reply / wechat_send_file → ilink API → 微信
 
 ## 前置要求
 
-- [Bun](https://bun.sh) >= 1.0
+- [Node.js](https://nodejs.org) >= 18 或 [Bun](https://bun.sh) >= 1.0
 - [Claude Code](https://code.claude.com) >= 2.1.81
 - 微信 iOS 最新版（需支持 ClawBot 插件）
 - ffmpeg + ffprobe（可选，视频帧提取）

@@ -1270,12 +1270,14 @@ if (cmd === "setup") {
   let pkgDir = path2.dirname(new URL(import.meta.url).pathname);
   if (pkgDir.endsWith("/dist"))
     pkgDir = path2.dirname(pkgDir);
-  const serverPath = path2.join(pkgDir, "wechat-channel.ts");
-  const bunPath = process.env.BUN_INSTALL ? path2.join(process.env.BUN_INSTALL, "bin", "bun") : "bun";
+  const distServer = path2.join(pkgDir, "dist", "wechat-channel.js");
+  const srcServer = path2.join(pkgDir, "wechat-channel.ts");
+  const serverPath = fs2.existsSync(distServer) ? distServer : srcServer;
+  const command = serverPath.endsWith(".js") ? "node" : "bun";
   const mcpConfig = {
     mcpServers: {
       wechat: {
-        command: bunPath,
+        command,
         args: [serverPath]
       }
     }
@@ -1292,7 +1294,7 @@ if (cmd === "setup") {
 `, "utf-8");
   console.log(`✅ MCP 配置已写入 ${mcpJsonPath}`);
   console.log(`   server: ${serverPath}`);
-  console.log(`   command: ${bunPath}`);
+  console.log(`   command: ${command}`);
   console.log();
   console.log("下一步：");
   console.log("  claude --dangerously-load-development-channels server:wechat");
