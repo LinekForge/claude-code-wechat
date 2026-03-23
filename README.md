@@ -1,4 +1,4 @@
-# Claude Code WeChat Channel
+# Claude Code WeChat
 
 让 Claude Code 住进你的微信——收消息、发文件、定时问好、远程审批，像一个真正在的人。
 
