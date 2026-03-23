@@ -10,9 +10,20 @@
 
 基于微信官方 ClawBot ilink API + Anthropic 官方 [Channels 协议](https://code.claude.com/docs/en/channels-reference)。不逆向，不模拟协议。
 
-## 快速开始
+```
+微信 (iOS) → ClawBot → ilink API → [本插件] → Claude Code Session
+                                        ↕
+Claude Code ← wechat_reply / wechat_send_file → ilink API → 微信
+```
 
-你需要 [Bun](https://bun.sh)、[Claude Code](https://code.claude.com) >= 2.1.81、微信 iOS 最新版（支持 ClawBot 插件）。
+## 前置要求
+
+- [Bun](https://bun.sh) >= 1.0
+- [Claude Code](https://code.claude.com) >= 2.1.81
+- 微信 iOS 最新版（需支持 ClawBot 插件）
+- ffmpeg + ffprobe（可选，视频帧提取）
+
+## 快速开始
 
 **1. 扫码登录**
 
