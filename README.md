@@ -8,7 +8,7 @@
 - **记忆** — 重启自动回放最近 200 条对话，不丢上下文
 - **安全** — 白名单门控，未授权消息静默丢弃
 
-基于微信官方 ClawBot ilink API + Anthropic 官方 [Channels 协议](https://code.claude.com/docs/en/channels-reference)。不逆向，不模拟，不封号。
+基于微信官方 ClawBot ilink API + Anthropic 官方 [Channels 协议](https://code.claude.com/docs/en/channels-reference)。不逆向，不模拟协议。
 
 ## 快速开始
 
