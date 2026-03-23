@@ -21,3 +21,4 @@ unhandled.jsonl
 voice_send_debug.json
 
 # Build output (included in npm package via files field)
+.DS_Store
