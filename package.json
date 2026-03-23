@@ -1,14 +1,15 @@
 {
   "name": "claude-code-wechat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "WeChat Channel plugin for Claude Code — bridge WeChat messages via official ilink API",
   "type": "module",
   "scripts": {
     "setup": "bun setup.ts",
-    "start": "bun wechat-channel.ts"
+    "start": "bun wechat-channel.ts",
+    "build": "bun build cli.ts --outfile dist/cli.js --target node"
   },
   "bin": {
-    "claude-code-wechat": "./wechat-channel.ts"
+    "claude-code-wechat": "./dist/cli.js"
   },
   "repository": {
     "type": "git",

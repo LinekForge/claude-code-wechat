@@ -19,3 +19,5 @@ msg_debug.jsonl
 permission_handler_registered.txt
 unhandled.jsonl
 voice_send_debug.json
+
+# Build output (included in npm package via files field)
