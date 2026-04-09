@@ -380,6 +380,9 @@ export async function extractContent(msg: { item_list?: MessageItem[] }): Promis
           video: "视频",
         };
         parts.push(`[${labels[media.type]}] 已保存到 ${media.filePath}`);
+        if (media.type === "image") {
+          parts.push(`请用 Read 工具查看该图片文件来了解图片内容。`);
+        }
         log(`📎 ${labels[media.type]}: ${media.filePath}`);
 
         // For videos, list extracted frames so Claude can read them
