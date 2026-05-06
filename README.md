@@ -1,5 +1,13 @@
 # Claude Code WeChat
 
+> **⚠️ 本项目已全面合并到 [Forge Hub](https://github.com/LinekForge/forge-hub)，不再单独维护。**
+>
+> Forge Hub 在微信通道基础上新增了 Telegram、飞书、iMessage 多通道支持、多实例路由、远程审批、通道自愈等能力。推荐直接使用 Forge Hub。
+>
+> 感谢所有 star、issue、PR 的朋友们的支持，这个项目是 Forge Hub 的起点。🙏
+
+---
+
 用微信远程指挥 Claude Code。
 
 你可以在微信里发消息，让电脑上的 Claude Code 继续改项目、回传结果、发送文件；遇到需要权限的操作时，也可以直接在微信里批准或拒绝。
@@ -107,7 +115,7 @@ claude --dangerously-load-development-channels server:wechat
 
 ## Agent 执行流程
 
-如果你是 agent，按下面流程执行；遇到“需要用户”的步骤时停下，让用户完成后再继续。
+如果你是 agent，按下面流程执行；遇到"需要用户"的步骤时停下，让用户完成后再继续。
 
 **1. 获取源码并安装依赖**
 
