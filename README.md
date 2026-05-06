@@ -282,6 +282,11 @@ Claude 需要执行敏感操作时，审批请求自动发到微信。回复 `ye
 
 > 本项目为社区独立作品，与 Anthropic 和腾讯无关。ilink 协议参考自 `@tencent-weixin/openclaw-weixin` 公开源码，Channels 协议遵循 Anthropic 官方文档。仅供学习和个人使用。
 
+## 贡献者
+
+- [@lightallspiritthing](https://github.com/lightallspiritthing) — 图片识别 Read tool 提示（[#1](https://github.com/LinekForge/claude-code-wechat/pull/1)）
+- [@AmberCXX](https://github.com/AmberCXX) — allowlist 重复代码重构（[#2](https://github.com/LinekForge/claude-code-wechat/issues/2)）· TTS stderr 捕获（[#3](https://github.com/LinekForge/claude-code-wechat/issues/3)）
+
 ## License
 
 MIT — Linek & Forge
