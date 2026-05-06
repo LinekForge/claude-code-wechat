@@ -390,9 +390,13 @@ mcp.setRequestHandler(CallToolRequestSchema, async (req) => {
       return { content: [{ type: "text" as const, text: `voice sent: "${text.slice(0, 50)}"` }] };
     } catch (err) {
       const errMsg = errorText(err);
-      logError(`语音发送失败: ${errMsg}`);
+      const stderr = (err as any)?.stderr instanceof Buffer
+        ? (err as any).stderr.toString().trim()
+        : "";
+      const detail = stderr ? `${errMsg}\nstderr: ${stderr}` : errMsg;
+      logError(`语音发送失败: ${detail}`);
       return {
-        content: [{ type: "text" as const, text: `语音发送失败。\n下一步：确认 ~/.claude/scripts/minimax-voice.sh 存在且可执行；不需要语音时请改用 wechat_reply。\n详情：${errMsg}` }],
+        content: [{ type: "text" as const, text: `语音发送失败。\n下一步：确认 ~/.claude/scripts/minimax-voice.sh 存在且可执行；不需要语音时请改用 wechat_reply。\n详情：${detail}` }],
       };
     }
   }

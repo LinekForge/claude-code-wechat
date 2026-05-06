@@ -11,50 +11,12 @@
  */
 
 import fs from "node:fs";
-import path from "node:path";
+
+import { DIR, CRED_FILE } from "./config.js";
+import { loadAllowlist, saveAllowlist } from "./allowlist.js";
 
 const BASE_URL = "https://ilinkai.weixin.qq.com";
 const BOT_TYPE = "3";
-const DIR = path.join(process.env.HOME || "~", ".claude", "channels", "wechat");
-const CRED_FILE = path.join(DIR, "account.json");
-const ALLOW_FILE = path.join(DIR, "allowlist.json");
-
-// ── Allowlist management ─────────────────────────────────────────────────────
-
-interface AllowEntry {
-  id: string;
-  nickname: string;
-}
-
-interface Allowlist {
-  allowed: AllowEntry[];
-  auto_allow_next: boolean;
-}
-
-function migrateAllowlist(raw: any): Allowlist {
-  if (!raw || !raw.allowed) return { allowed: [], auto_allow_next: false };
-  const allowed: AllowEntry[] = raw.allowed.map((entry: any) => {
-    if (typeof entry === "string") {
-      return { id: entry, nickname: entry.split("@")[0] };
-    }
-    return entry as AllowEntry;
-  });
-  return { allowed, auto_allow_next: raw.auto_allow_next ?? false };
-}
-
-function loadAllowlist(): Allowlist {
-  try {
-    if (fs.existsSync(ALLOW_FILE)) {
-      return migrateAllowlist(JSON.parse(fs.readFileSync(ALLOW_FILE, "utf-8")));
-    }
-  } catch {}
-  return { allowed: [], auto_allow_next: false };
-}
-
-function saveAllowlist(list: Allowlist): void {
-  fs.mkdirSync(DIR, { recursive: true });
-  fs.writeFileSync(ALLOW_FILE, JSON.stringify(list, null, 2), { encoding: "utf-8", mode: 0o600 });
-}
 
 // ── CLI subcommands ──────────────────────────────────────────────────────────
 

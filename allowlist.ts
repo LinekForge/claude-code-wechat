@@ -3,6 +3,7 @@
  */
 
 import fs from "node:fs";
+import path from "node:path";
 
 import { ALLOW_FILE, log } from "./config.js";
 import type { AllowEntry, Allowlist } from "./types.js";
@@ -29,6 +30,7 @@ export function loadAllowlist(): Allowlist {
 }
 
 export function saveAllowlist(list: Allowlist): void {
+  fs.mkdirSync(path.dirname(ALLOW_FILE), { recursive: true });
   fs.writeFileSync(ALLOW_FILE, JSON.stringify(list, null, 2), { encoding: "utf-8", mode: 0o600 });
 }
 
